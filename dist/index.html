@@ -7,17 +7,22 @@
   <title>Document</title>
 <script defer src="/app.js"></script><link href="/main.css" rel="stylesheet"></head>
 <body>
-  <form action="" id="project-form">
-    <fieldset>
-      <legend>New Project</legend>
-      <label for="project-name"></label>
-      <input type="text" id="project-form__name" placeholder="e.i. Porject1">
-      <button type="submit" id="project-form__btn">Create Project</button>
-    </fieldset>
-  </form>
-  <div class="project-container">
-    <ul class="project-list"></ul>
-  </div>
+  <aside>
+    <form action="" id="project-form">
+      <fieldset>
+        <legend>New Project</legend>
+        <label for="project-name"></label>
+        <input type="text" id="project-form__name" placeholder="e.i. Porject1">
+        <button type="submit" id="project-form__btn">Create Project</button>
+      </fieldset>
+    </form>
+    <div class="project-container">
+      <ul class="project-list"></ul>
+    </div>
+  </aside>
+  <main>
+    <div class="todos-container"></div>
+  </main>
   
 </body>
 </html>

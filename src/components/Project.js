@@ -6,7 +6,7 @@ export default class Project {
     this.name = name;
   }
 
-    get getDeleteBtns () {
+  get getDeleteBtns () {
     return document.querySelectorAll('.delete-pj-btn');
   }
 
