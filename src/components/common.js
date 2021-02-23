@@ -1,4 +1,4 @@
-import { store } from './storage';
+import { store, currentIndex } from './storage';
 
 const storeProject = (projectName) => {
   store.push({
@@ -8,9 +8,16 @@ const storeProject = (projectName) => {
   console.log(store)
 }
 
-const storeTodos = (projectIdx) => {
-  store[projectIdx].todos.push('hello')
-}
+const storeTodos = (title, description, date, priority) => store[currentIndex.id]
+  .todos
+  .push(
+    {
+      title: title,
+      description: description,
+      date: date,
+      priority: priority
+    }
+  );
 
 const renderProjects = (container) => {
   store.forEach(project => {
@@ -33,4 +40,16 @@ const getProjectIndex = (id) => store.findIndex(pj => sanitizeId(pj.projectName)
 
 const sanitizeId = (text) => text.split(' ').join('');
 
-export { storeProject, storeTodos, renderProjects, sanitizeId, getProjectIndex, deleteElementFromDOM }
+const displayTodoForm = (element) => element.classList.add('show')
+const hideTodoForm = (element) => element.classList.remove('show')
+
+export {
+  storeProject,
+  storeTodos,
+  renderProjects,
+  sanitizeId,
+  getProjectIndex,
+  deleteElementFromDOM,
+  displayTodoForm,
+  hideTodoForm
+}

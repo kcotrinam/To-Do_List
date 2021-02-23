@@ -1,6 +1,8 @@
 const store = [
 ];
 
+const currentIndex = { id: 0 }
+
 const setLocalStorage = () => {
   window.localStorage.setItem('todos', JSON.stringify(store));
 };
@@ -14,4 +16,4 @@ const populateStore = () => {
   }
 };
 
-export { setLocalStorage, populateStore, store };
+export { setLocalStorage, populateStore, store, currentIndex };
