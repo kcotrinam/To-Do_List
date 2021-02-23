@@ -34,6 +34,26 @@ const renderProjects = (container) => {
   })
 }
 
+const renderTodos = (container) => {
+  container.innerHTML = ''
+  store[currentIndex.id].todos.forEach(todo => {
+    const card = `
+      <div class="card" id="${sanitizeId(todo.title)}">
+        <h2>${todo.title}</h2>
+        <p>${todo.description}</p>
+        <p>${todo.date}</p>
+        <span>${todo.priority}</span>
+        <div>
+          <div class="btn btn-delete" data-id="${sanitizeId(todo.title)}">Delete</div>
+          <div class="btn btn-edit" data-id="${sanitizeId(todo.title)}">Edit</div>
+          <div class="btn btn-complete" data-id="${sanitizeId(todo.title)}">complete</div>
+        </div>
+      </div>
+    `
+    container.insertAdjacentHTML('afterbegin', card)
+  })
+}
+
 const deleteElementFromDOM = (id) => document.querySelector(`#${id}`).remove()
 
 const getProjectIndex = (id) => store.findIndex(pj => sanitizeId(pj.projectName) === id)
@@ -51,5 +71,6 @@ export {
   getProjectIndex,
   deleteElementFromDOM,
   displayTodoForm,
-  hideTodoForm
+  hideTodoForm,
+  renderTodos
 }

@@ -1,4 +1,4 @@
-import { getProjectIndex, storeTodos, displayTodoForm } from './common';
+import { getProjectIndex, storeTodos, displayTodoForm, renderTodos } from './common';
 import { store, setLocalStorage, currentIndex } from './storage';
 
 export default class Todos {
@@ -19,6 +19,7 @@ export default class Todos {
 
     addBtns.forEach(btn => {
       btn.addEventListener('click', e => {
+        e.stopPropagation();
         displayTodoForm(this.todoForm)
         currentIndex.id = getProjectIndex(e.target.dataset.id);
       })

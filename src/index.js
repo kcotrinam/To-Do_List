@@ -39,4 +39,5 @@ todoSubmit.addEventListener('click', e => {
 document.addEventListener('DOMContentLoaded', () => {
   populateStore();
   UI.renderProject();
+  UI.showTodos();
 })
