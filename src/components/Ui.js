@@ -1,8 +1,10 @@
 import { store, setLocalStorage } from './storage';
 import { renderProjects } from './common';
 import Project from './Project'
+import Todos from './Todos'
 
 const pj = new Project()
+const newTodo = new Todos();
 
 export default class Ui {
   constructor() {
@@ -15,5 +17,6 @@ export default class Ui {
     this.projectContainer.textContent = '';
     renderProjects(this.projectContainer);
     pj.deleteProject();
+    newTodo.showForm();
   }
 }
